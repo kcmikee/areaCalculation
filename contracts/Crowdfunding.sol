@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.19;
+pragma solidity ^0.8.19;
 
 contract CrowdFunding {
     struct Campaign {
@@ -77,11 +77,11 @@ contract CrowdFunding {
 
     function endCampaign(uint256 _campaignId) public payable accountExists(_campaignId) isCampaignEnded(campaigns[_campaignId].deadline) {
         Campaign storage campaign = campaigns[_campaignId];
-        uint256 raisedAmount = campaign.amountRaised;
+        uint256 raisedAmount = campaign.    amountRaised;
         uint256 lGoal = campaign.goal;
         uint256 remainingBalance = raisedAmount - lGoal;
 
-        if (raisedAmount > lGoal ) {
+        if (raisedAmount <= lGoal ) {
             payable(campaign.benefactor).transfer(raisedAmount);
             campaign.amountRaised = 0;
         }else{
