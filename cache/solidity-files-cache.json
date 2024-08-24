@@ -72,6 +72,42 @@
       "artifacts": [
         "Lock"
       ]
+    },
+    "/Users/kachi/Downloads/Web3Bridge/areaCalculation/contracts/Crowdfunding.sol": {
+      "lastModificationDate": 1724522132233,
+      "contentHash": "7fa49b4595a754262f13778822c206b9",
+      "sourceName": "contracts/Crowdfunding.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.19"
+      ],
+      "artifacts": [
+        "CrowdFunding"
+      ]
     }
   }
 }

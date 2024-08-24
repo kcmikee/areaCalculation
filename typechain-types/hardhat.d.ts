@@ -18,6 +18,10 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.AreaCalculation__factory>;
     getContractFactory(
+      name: "CrowdFunding",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.CrowdFunding__factory>;
+    getContractFactory(
       name: "Lock",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.Lock__factory>;
@@ -28,6 +32,11 @@ declare module "hardhat/types/runtime" {
       signer?: ethers.Signer
     ): Promise<Contracts.AreaCalculation>;
     getContractAt(
+      name: "CrowdFunding",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.CrowdFunding>;
+    getContractAt(
       name: "Lock",
       address: string | ethers.Addressable,
       signer?: ethers.Signer
@@ -38,6 +47,10 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.AreaCalculation>;
     deployContract(
+      name: "CrowdFunding",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.CrowdFunding>;
+    deployContract(
       name: "Lock",
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.Lock>;
@@ -47,6 +60,11 @@ declare module "hardhat/types/runtime" {
       args: any[],
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.AreaCalculation>;
+    deployContract(
+      name: "CrowdFunding",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.CrowdFunding>;
     deployContract(
       name: "Lock",
       args: any[],
