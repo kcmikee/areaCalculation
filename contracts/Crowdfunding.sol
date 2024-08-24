@@ -78,12 +78,17 @@ contract CrowdFunding {
     function endCampaign(uint256 _campaignId) public accountExists(_campaignId) isCampaignEnded(campaigns[_campaignId].deadline) {
         Campaign storage campaign = campaigns[_campaignId];
         uint256 raisedAmount = campaign.amountRaised;
+        uint256 lGoal = campaign.goal;
+        uint256 remainingBalance = raisedAmount - lGoal;
 
-        if (raisedAmount > 0) {
+        if (raisedAmount > lGoal ) {
+            payable(campaign.benefactor).transfer(raisedAmount);
+            campaign.amountRaised = 0;
+        }else{
+            payable(campaign.owner).transfer(remainingBalance);
             payable(campaign.benefactor).transfer(raisedAmount);
             campaign.amountRaised = 0;
         }
-
         emit CampaignEnded();
     }
 }
