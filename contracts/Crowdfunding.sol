@@ -69,10 +69,10 @@ contract CrowdFunding {
         emit CampaignCreated(_title, _description, _benefactor, _goal, deadline, 0, msg.sender);
     }
 
-    function donateToCampaign(uint256 _campaignId, uint256 _amount) public payable accountExists(_campaignId) isCampaignOngoing(campaigns[_campaignId].deadline) {
-        campaigns[_campaignId].amountRaised += _amount;
+    function donateToCampaign(uint256 _campaignId) public payable accountExists(_campaignId) isCampaignOngoing(campaigns[_campaignId].deadline) {
+        campaigns[_campaignId].amountRaised += msg.value;
 
-        emit DonationReceived(_campaignId,_amount, block.timestamp);
+        emit DonationReceived(_campaignId,msg.value, block.timestamp);
     }
 
     function endCampaign(uint256 _campaignId) public payable accountExists(_campaignId) isCampaignEnded(campaigns[_campaignId].deadline) {
