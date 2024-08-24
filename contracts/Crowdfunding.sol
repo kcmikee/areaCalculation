@@ -75,7 +75,7 @@ contract CrowdFunding {
         emit DonationReceived(_campaignId,_amount, block.timestamp);
     }
 
-    function endCampaign(uint256 _campaignId) public accountExists(_campaignId) isCampaignEnded(campaigns[_campaignId].deadline) {
+    function endCampaign(uint256 _campaignId) public payable accountExists(_campaignId) isCampaignEnded(campaigns[_campaignId].deadline) {
         Campaign storage campaign = campaigns[_campaignId];
         uint256 raisedAmount = campaign.amountRaised;
         uint256 lGoal = campaign.goal;
